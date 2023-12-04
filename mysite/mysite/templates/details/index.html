@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>details</title>
-    <h2>hello!</h2>
 </head>
 <body>
-
+    {% for news_data in news_data_list %}
+    <h2>{{ news_data.title }}</h2>
+    <p>{{ news_data.reporter }}</p>
+    <p>{{ news_data.company }}</p>
+    <p>{{ news_data.datetime }}</p>
+    <br/>
+    <p>{{ news_data.article }}</p>
+    <p><a href="{{ news_data.url }}" target='_blank'>기사 전체 보기</a></p><hr/>
+    {% endfor %}
 </body>
 </html>
