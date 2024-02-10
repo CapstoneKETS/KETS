@@ -6,6 +6,7 @@ def index(request):
     return render(request, 'details/index.html')
 # Create your views here.
 
-def newsDataView(request):
-    news_data_all = newsData.objects.all()
-    return render(request, 'details/index.html', {'news_data_list': news_data_all})
+def newsDataView(request, filter):
+    # news_data_all = newsData.objects.all()
+    news_data = newsData.objects.get(url=filter)
+    return render(request, 'details/index.html', {'news_data': news_data})
