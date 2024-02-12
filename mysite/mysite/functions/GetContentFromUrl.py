@@ -1,3 +1,5 @@
+import time
+
 import requests
 from bs4 import BeautifulSoup as bs
 import re
@@ -7,24 +9,28 @@ import numpy as np
 from sklearn.preprocessing import normalize
 from _datetime import datetime
 import bs4
-from konlpy.tag import *
 from time import *
 import json
+import schedule
+from Keyword import *
+from Preprocessing import *
+from mysite.mysite.mainpage.models import kwHistory
+from mysite.mysite.mainpage.models import kwRank
 
-def date_form(x):
+def dateForm(x):
     if (x > 0) & (x < 10):
         return '0' + str(x)
     elif x > 10:
         return str(x)
 
-def get_soup(url): # soup 객체를 가져옴
+def getSoup(url): # soup 객체를 가져옴
     res = requests.get(url)
     if res.status_code == 200:
         return bs(res.text, 'html.parser')
     else:
         print(f"Super big fail! with {res.status_code}")
         
-def get_newslist(t): # 한 시간 동안(X시 대)의 뉴스 목록 가져오기 ex) 4시 48분일 경우 3:00~3:59의 기사를 가져옴
+def getNewslist(t): # 한 시간 동안(X시 대)의 뉴스 목록 가져오기 ex) 4시 48분일 경우 3:00~3:59의 기사를 가져옴
     time_now = gmtime(t + 28800) # 현재 시간보다 한 시간 전 GMT + 8
     time_bef = gmtime(t + 25200) # 현재 시간보다 두 시간 전 GMT + 7
     datetime_now = [time_now.tm_year, time_now.tm_mon, time_now.tm_mday, time_now.tm_hour]
@@ -32,7 +38,7 @@ def get_newslist(t): # 한 시간 동안(X시 대)의 뉴스 목록 가져오기
 
     #print(time_now)
     
-    metadatas_tuple = read_json(datetime_now, datetime_bef)
+    metadatas_tuple = readJson(datetime_now, datetime_bef)
     metadatas = []
     for metadata in metadatas_tuple:
         temp_dict = dict()
@@ -46,11 +52,11 @@ def get_newslist(t): # 한 시간 동안(X시 대)의 뉴스 목록 가져오기
 
     return metadatas
 
-def get_newsdatas(metadatas):
+def getNewsdatas(metadatas):
     news_in_hour = []
     for metadata in metadatas:
         news_URL = 'https://sports.news.naver.com/news?oid=' + metadata['oid'] + '&aid=' + metadata['aid']
-        soup = get_soup(news_URL)
+        soup = getSoup(news_URL)
         article = soup.find('div', attrs={"id": "newsEndContents"})
         for child in article.children:
             if isinstance(child, bs4.element.Tag):
@@ -62,16 +68,16 @@ def get_newsdatas(metadatas):
         news_in_hour.append(temp_dict)
     return news_in_hour
 
-def get_newsdata(url): # 뉴스 본문 페이지에서 데이터들을 가져오는 함수
-    soup = get_soup(url)
+def getNewsdata(url): # 뉴스 본문 페이지에서 데이터들을 가져오는 함수
+    soup = getSoup(url)
     title = soup.find('title').get_text()
-   # reporter = soup.select_one('#newsEndContents > div.reporter_area div.reporter_profile > div > div.profile_info > a > div.name').get_text()
-    reporter = soup.select_one('#newsEndContents > p.byline').get_text()
+    reporter = soup.select_one('#newsEndContents > div.reporter_area div.reporter_profile > div > div.profile_info > a > div.name').get_text()
+    # reporter = soup.select_one('#newsEndContents > p.byline').get_text()
     company = soup.select_one('#content > div > div.content > div > div.link_news > div > h3 > span.logo').get_text()
     datetime = soup.select_one('#content > div > div.content > div > div.news_headline > div > span:nth-child(1)').get_text()
-    datetime = get_datetime_from_news(datetime)
+    datetime = getDatetimeFromNews(datetime)
     article = soup.find('div', attrs={"id": "newsEndContents"})
-    article = delete_child(article).get_text()
+    article = deleteChild(article).get_text()
     newsdata = {}
     newsdata['title'] = title
     newsdata['reporter'] = reporter
@@ -80,28 +86,28 @@ def get_newsdata(url): # 뉴스 본문 페이지에서 데이터들을 가져오
     newsdata['article'] = article
     return newsdata
     
-def get_datetime_from_news(datetime):
+def getDatetimeFromNews(datetime):
     datetime = re.split("[ .:]", datetime)
     if datetime[5] == "오후":
         datetime[6] = str(int(datetime[6]) + 12)
     datetime = datetime[1] + '.' + datetime[2] + '.' + datetime[3] + ' ' + datetime[6] + ':' + datetime[7]
     return datetime
 
-def delete_child(tag):
+def deleteChild(tag):
     for child in tag.children:
         if isinstance(child, bs4.element.Tag):
             child.decompose()
     return tag
 
-def read_json(now, bef): # json 형식의 파일을 한 시간 단위로 긁어오기
+def readJson(now, bef): # json 형식의 파일을 한 시간 단위로 긁어오기
     page = 1
     dup_cnt = 0
     metadatas = []
     while dup_cnt < 10:
         dup = 0
-        news_list_URL = 'https://sports.news.naver.com/wfootball/news/list?isphoto=N&date=' + date_form(now[0])\
-                        + date_form(now[1]) + date_form(now[2]) + '&page=' + str(page)
-        soup = str(get_soup(news_list_URL))
+        news_list_URL = 'https://sports.news.naver.com/wfootball/news/list?isphoto=N&date=' + dateForm(now[0])\
+                        + dateForm(now[1]) + dateForm(now[2]) + '&page=' + str(page)
+        soup = str(getSoup(news_list_URL))
         news_metadata = json.loads(soup)
         for metadata in news_metadata['list']: # 뉴스 메타데이터 한 건 당
             for i in metadatas:
@@ -123,3 +129,87 @@ def read_json(now, bef): # json 형식의 파일을 한 시간 단위로 긁어�
                 return metadatas
         page += 1
     return metadatas
+
+def getNewsdatasForKwhistory():
+    news_list = getNewslist(time())
+    news_datas = getNewsdatas(news_list)
+    articles = []
+    keyword = []
+    kw_model = modelLoad(model_type)
+    for data in news_datas:
+        articles.append(data['article'])
+
+    keyword = getKwFromArticles(articles)
+    return keyword
+
+def insertKwhistory():
+    kws = getNewsdatasForKwhistory()
+    for kw in kws:
+        t = kwHistory.objects.filter(keyword=kw[0], datetime=0)
+        if len(t):
+            t[0].rank += kw[1]
+            t[0].save()
+        else:
+            t = kwHistory(keyword=kw[0], datetime=0, rank=kw[1])
+            t.save()
+    print(kws)
+
+def deleteKwhistory():
+    histories = kwHistory.objects.all().order_by('datetime')
+    for history in histories:
+        if history.datetime <= 23:
+            history.datetime += 1
+            history.save()
+        else: history.delete()
+
+def updateKwhistory():
+    deleteKwhistory()
+    insertKwhistory()
+def updateKwrank():     # kwhistory -> kwrank
+    kwRank.objects.all().delete()
+    histories = kwHistory.objects.all()
+    rank = dict()
+
+    for history in histories:
+        rank[history.keyword] = 0
+    for history in histories:
+        rank[history.keyword] += weightedrank(history.datetime) * history.rank
+
+    keywords = list(rank)
+    for keyword in keywords:
+        t = kwRank(keyword=keyword, rank=rank[keyword])
+        t.save()
+
+def weightedrank(datetime):
+    return 1 + (24-datetime) / 24
+
+def updateKwtables():
+    updateKwhistory()
+    updateKwrank()
+    showMeKwtable()
+
+def showMeKwtable():
+    kh = kwHistory.objects.all().order_by('-rank')
+    kr = kwRank.objects.all().order_by('-rank')
+    print(kh, kr)
+    for h in kh:
+        print(h.keyword, h.datetime, h.rank)
+    for r in kr:
+        print(r.keyword, r.rank)
+
+if __name__ == '__main__':
+    schedule.every().hour.at(":01").do(updateKwtables)
+
+    while True:
+        schedule.run_pending()
+        print(gmtime(time()+32400))
+        sleep(60)
+
+    '''kh = kwHistory.objects.all()
+    for h in kh:
+        h.delete()
+    kr = kwRank.objects.all()
+    for r in kr:
+        r.delete()
+
+    print(kwHistory.objects.all(), kwRank.objects.all(), "remain.")'''
