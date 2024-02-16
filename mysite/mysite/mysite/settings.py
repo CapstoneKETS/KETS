@@ -61,6 +61,7 @@ STATIC_URL = '/static/'
 STATIC_DIRS = [
     BASE_DIR / 'static',
 ]
+
 STATIC_ROOT = 'KETS\mysite\mysite\static'
 
 TEMPLATES = [

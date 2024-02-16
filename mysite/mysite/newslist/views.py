@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import NewsListData
 
 def index(request):
+
     newslist = NewsListData.objects.order_by('id')[:5]
     newspaper = []
     newstitle = []
