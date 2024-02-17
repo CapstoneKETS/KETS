@@ -14,7 +14,7 @@ def index(request):
     newslink = []
     for news in newslist:
         # newspaper.append(news.newspaper)
-        newstitle.append(news.title)
+        newstitle.aoppend(news.title)
         # newsdate.append(news.newsdate)
         # reporter.append(news.reporter)
         newslink.append(news.link)
