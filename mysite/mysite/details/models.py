@@ -1,13 +1,14 @@
 from django.db import models
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class newsData(models.Model):
+    title = models.CharField(max_length=50)
+    reporter = models.CharField(max_length=10)
+    company = models.CharField(max_length=50)
+    datetime = models.DateTimeField()
+    article = models.TextField()
+    url = models.URLField()
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
+    def __str__(self):
+        return self.title
 
 # Create your models here.
