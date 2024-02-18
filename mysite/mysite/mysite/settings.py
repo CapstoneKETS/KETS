@@ -1,3 +1,4 @@
+
 """
 Django settings for mysite project.
 
@@ -40,9 +41,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "details",
-    "newslist",
-    "mainpage"
+    "mysite.mysite.mainpage",
+    "mysite.mysite.newslist",
+    "mysite.mysite.details"
 ]
 
 MIDDLEWARE = [
@@ -58,11 +59,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = "mysite.urls"
 
 STATIC_URL = '/static/'
-STATIC_DIRS = [
-    BASE_DIR / 'static',
-]
-
-STATIC_ROOT = 'KETS\mysite\mysite\static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATES = [
     {
