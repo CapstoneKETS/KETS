@@ -3,5 +3,11 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.11" />
   </component>
+<!-- <<<<<<< Chea-Dan-bi
+  <component name="ProjectRootManager" version="2" project-jdk-name="C:\Users\danbi\anaconda3" project-jdk-type="Python SDK" />
+  <component name="PyCharmProfessionalAdvertiser">
+    <option name="shown" value="true" />
+  </component>
+======= --> 02-18일자 단비님 커밋 부분(파일 경로는 각자 코드 작성시 수정 필요할때 본인이 수정 바립니다)
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (test_env)" project-jdk-type="Python SDK" />
 </project>
