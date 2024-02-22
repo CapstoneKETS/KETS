@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<!-- <<<<<<< Chea-Dan-bi 단비님은 여기부터
-      <module fileurl="file://$PROJECT_DIR$/.idea/KETS.iml" filepath="$PROJECT_DIR$/.idea/KETS.iml" /> 여기까지 주석 해제하시고 아래 건님 파일 경로명을 날려주시면 됩니다.-->
       <module fileurl="file://$PROJECT_DIR$/.idea/capstone.iml" filepath="$PROJECT_DIR$/.idea/capstone.iml" />
     </modules>
   </component>
