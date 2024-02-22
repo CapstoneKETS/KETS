@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "details",
-    "newslist",
-    "mainpage"
+    "mysite.mysite.mainpage",
+    "mysite.mysite.newslist",
+    "mysite.mysite.details"
 ]
 
 MIDDLEWARE = [

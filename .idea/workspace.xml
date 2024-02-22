@@ -4,7 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf7d7547-d7b2-4b0e-b624-1a4d5475f357" name="Changes" comment="" />
+    <list default="true" id="bf7d7547-d7b2-4b0e-b624-1a4d5475f357" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/capstone.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/details/migrations/0002_newsdata_delete_choice_delete_question.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/functions/GetContentFromUrl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/functions/Keyword.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/functions/Preprocessing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/functions/SummarizeIn3Sentences.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/functions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/mysite/mysite/setVenv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/details/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/details/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mainpage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mainpage/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mainpage/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mainpage/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mainpage/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mysite/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mysite/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/mysite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/mysite/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/migrations/0002_remove_newslistdata_pub_date_newslistdata_keyword.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/migrations/0002_remove_newslistdata_pub_date_newslistdata_keyword.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/newslist/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/newslist/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/templates/details/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/templates/details/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/templates/newslist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/templates/newslist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_env.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test_env.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +84,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "D:/DjangoForRevert"
   }
 }]]></component>
