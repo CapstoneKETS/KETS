@@ -28,5 +28,5 @@ def add_new_items(newslist, word): # DB에 크롤링한 정보들을 저장합�
 
 # 이 명령어는 이 파일이 import가 아닌 python에서 직접 실행할 경우에만 아래 코드가 동작하도록 합니다.
 if __name__ == '__main__':
-    word = '김성근'
+    word = '황희찬'
     add_new_items(get_newslist(word), word)

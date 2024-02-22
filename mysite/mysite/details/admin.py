@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import newsData
+from .models import Question, Choice
 
-admin.site.register(newsData)
-
+admin.site.register(Question)
+admin.site.register(Choice)
 
 
 # Register your models here.
