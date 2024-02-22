@@ -1,6 +1,6 @@
+
 # models.py
 from django.db import models
-
 
 class newsData(models.Model):
     url = models.URLField()
@@ -14,5 +14,3 @@ class newsData(models.Model):
 
     def __str__(self):
         return self.title
-
-# Create your models here.
