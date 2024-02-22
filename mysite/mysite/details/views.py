@@ -8,6 +8,7 @@ from .functions.GetContentFromUrl import *
 from .functions.Keyword import *
 from .functions.TextRank import *
 from django.conf import settings
+
 def index(request):
     return render(request, 'details/index.html')
 
@@ -46,3 +47,4 @@ def showDetails(request, url):
     else:  # 데이터베이스에 이미 있는 경우
         return render(request, 'index.html', {'data': data})
 # Create your views here.
+# views.py

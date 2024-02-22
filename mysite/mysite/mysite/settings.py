@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+
 import os
 from pathlib import Path
 from keybert import KeyBERT
@@ -137,3 +138,5 @@ model_type = 'skt/kobert-base-v1'
 model = BertModel.from_pretrained(f'{model_type}')
 keyword_model = KeyBERT(model)
 kiwi = Kiwi()
+
+# settings.py
